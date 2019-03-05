@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Employee Records</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+<h1>Employee Records</h1>
+<a href="/emp" class="btn btn-primary">Add New Data</a>
+<table class="table table-responsive table-bordered w-100 d-block d-md-table">
+	<thead>
+	<tr>
+		<th>Employee ID</th>
+		<th>Employee Name</th>
+		<th>Employee Email</th>
+		<th>Employee Contact</th>
+		<th>Actions</th>
+	</tr>
+</thead>
+<tbody>
+	{% for employee in employees %}
+	<tr>
+		<td>{{ employee.employee_id }}</td>
+		<td>{{ employee.employee_name }}</td>
+		<td>{{ employee.email }}</td>
+		<td>{{ employee.employee_contact }}</td>
+		<td>
+			<a href="/edit/{{ employee.id }}" class="btn btn-sm btn-info" >Edit</a>
+			<a href="/delete/{{ employee.id }}" class="btn btn-sm btn-warning">Delete</a>
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>
+</table>
+</div>
+</body>
+</html>
